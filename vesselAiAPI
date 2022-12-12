@@ -1,0 +1,21 @@
+import openai
+
+# Replace with your OpenAI API key
+openai.api_key = "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"
+
+# Choose the text you want to summarize
+text = input("Put the text you want to summarize: ")
+
+# Use the OpenAI API to generate a summary of the text
+response = openai.Completion.create(
+  engine="text-davinci-002",
+  prompt=f"Summarize: {text}",
+  temperature=0.5,
+  max_tokens=1024,
+  top_p=1,
+  frequency_penalty=0,
+  presence_penalty=0
+)
+
+# Print the generated summary
+print(response["choices"][0]["text"])
